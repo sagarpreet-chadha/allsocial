@@ -14,26 +14,16 @@
 		</p>
 	</div>
 	<div class="post-comments-container">
-		<%= form_for @comment do |f| %>
+		
+		<%= form_for @comment , remote: true do |f| %>
 			<%= f.hidden_field :post_id, value: p.id %>
 			<%= f.text_area :content, placeholder: "Add Comment" %>
 			<%= f.submit %>
 		<% end %>
-		<ul class="comments-list">
+
+		<ul id="comments-list<%= p.id %>" class="comments-list">
 			<% p.comments.each do |com| %>
-			<li>
-				<div>
-					<p>
-					<%= com.content %>
-					</p>
-					<p class="author-details"><%= com.user.email%> at <%= com.created_at %>
-					</p>
-				</div>
-				
-				<p class="comment-destroy-link">
-					<%= link_to "X", comment_path(com.id), method: :delete %>
-				</p>
-			</li>
+				<%=	render 'comment' , c: com %>
 			<% end %>
 		</ul>
 	</div>

@@ -1,0 +1,14 @@
+<li>
+				<div>
+					<p>
+					<%= c.content %>
+					</p>
+					<p class="author-details"><%= c.user.email%> at <%= c.created_at %>
+					</p>
+				</div>
+				
+				<p class="comment-destroy-link">
+					<%= link_to "X", comment_path(c.id), method: :delete %>
+				</p>						
+
+</li>

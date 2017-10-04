@@ -9,8 +9,10 @@ class CommentsController < ApplicationController
   	@comment = Comment.new(comment_params)
   	@comment.user = current_user
   	@comment.save
-  	return redirect_to posts_path
-
+    @p=@comment.post
+  	#return format.js {render action: 'show', :id => @recipe.id}
+    #byebug
+    #return action: create
   end
 
   def destroy
