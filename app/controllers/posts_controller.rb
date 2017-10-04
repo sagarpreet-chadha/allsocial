@@ -7,6 +7,8 @@ class PostsController < ApplicationController
   	@post = Post.new
   	@comment = Comment.new
   	@posts = Post.all.reverse()
+    @likes=Like.all 
+    
   end
 
   def create
@@ -14,6 +16,7 @@ class PostsController < ApplicationController
   	@post.user = current_user
   	@post.save
   	@comment = Comment.new
+    @likes=Like.all 
   end
 
   def destroy

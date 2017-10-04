@@ -43,6 +43,14 @@
 		flex-direction: column;
 		justify-content: flex-start;
 
+		.fblike{
+			background-color: #4267b2 ;
+			color: white ;
+			width: 70px ;
+			a{
+				color: white ;
+			}
+		}
 		.post{
 			border-bottom: 1px solid grey;
 			.post-content{

@@ -1,0 +1,8 @@
+
+$('#likecount<%= @l.likeable_id %>').html(function(i , text){
+	return parseInt(text)+1 ;
+}) ;
+
+$('#likebutton<%= @l.likeable_id %>').html("Liked!") ;
+
+$('#likebutton<%= @l.likeable_id %>').attr("href", "javascript: void(0)")

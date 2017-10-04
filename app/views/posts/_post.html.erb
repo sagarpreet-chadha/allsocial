@@ -13,6 +13,33 @@
 			<%= link_to "X", post_path(p.id), remote: true, method: :delete %>
 		</p>
 	</div>
+	
+
+
+	<!-- Like   -->
+	<div class="fblike">
+		<div> 
+		<span id: "likebutton<%= p.id %>">
+			<% if user_signed_in?	%>
+				<% 	@templ = Like.where(user_id: current_user.id , likeable_type: "post" , likeable_id: p.id) ; %>
+				<% if @templ.count == 0 %>
+				<%= link_to "Like" , post_likes_path(p.id) , remote: true, method: :post  , id: "likebutton#{p.id}" %>
+				<% else %>
+				<span>Liked !</span>
+				<% end %>
+			<% end %>
+		</span>
+		&nbsp; &nbsp; 
+		<span id="likecount<%= p.id %>"> 
+		
+		<%= @likes.where(likeable: p.id).count ; %>
+		
+		 </span>
+	    </div> 
+	</div>
+	
+
+
 	<div class="post-comments-container">
 		
 		<%= form_for @comment , remote: true do |f| %>
