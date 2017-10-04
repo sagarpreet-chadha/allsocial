@@ -10,18 +10,11 @@ class CommentsController < ApplicationController
   	@comment.user = current_user
   	@comment.save
     @p=@comment.post
-  	#return format.js {render action: 'show', :id => @recipe.id}
-    #byebug
-    #return action: create
   end
 
   def destroy
   	@post = @comment.post
-    @x=@comment 
   	@comment.destroy
-    
-  	#return redirect_to posts_path
-
   end
 
   private
