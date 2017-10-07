@@ -19,13 +19,13 @@
 	<!-- Like   -->
 	<div class="fblike">
 		<div> 
-		<span id: "likebutton<%= p.id %>">
+		<span id="likebuttonouter<%= p.id %>">
 			<% if user_signed_in?	%>
 				<% 	@templ = Like.where(user_id: current_user.id , likeable_type: "post" , likeable_id: p.id) ; %>
 				<% if @templ.count == 0 %>
 				<%= link_to "Like" , post_likes_path(p.id) , remote: true, method: :post  , id: "likebutton#{p.id}" %>
 				<% else %>
-				<span>Liked !</span>
+				<%= link_to "UnLike" , post_unlikes_path(p.id) , remote: true , method: :get  , id: "unlikebutton#{p.id}" %>
 				<% end %>
 			<% end %>
 		</span>

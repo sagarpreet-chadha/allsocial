@@ -17,6 +17,13 @@
 			<% end %>
 		</div>
 
+		<div id="addfriend">
+
+			<div class="fblike">
+					<%= link_to "Add Friends" , friends_index_path , method: :get %>
+			</div>
+
+		</div>
 		<div id="auth-links">
 			<ul>
 				<% if !user_signed_in? %>

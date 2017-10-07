@@ -1,0 +1,25 @@
+<div id="user_list">
+
+	<% @users.each do |i| %>
+		<div id="each_userid<%= i.id %>" , class="each_user">
+		<%= i.email %>
+
+		<div class="fblike">
+		<% @tempf = @allfriends.where(user_id: current_user.id , friend_id: i.id) %>
+		<% if @tempf.count == 0 %>
+			<%= link_to "Add Friend" , friends_add_path(i.id)  , remote: :true , method: :post , id: "button#{i.id}" %>
+		<% else %>
+			<% if @tempf.first.confirmed == true %>
+				Already Friends
+			<% else %>
+				Request Send :)
+			<% end %>
+		<% end %>
+		</div>
+
+		</div>
+	<% end %>
+
+
+
+</div>

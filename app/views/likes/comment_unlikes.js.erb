@@ -1,0 +1,10 @@
+
+$('#comment_likecount<%= @l %>').html(function(i , text){
+	return parseInt(text)-1 ;
+}) ;
+
+
+ $('#comment_unlikebutton<%= @l %>').remove() ;
+
+ $("<a/>", { text: "Like" , method: "post" , href: "/likes/comment_likes/<%= @l %>" }).appendTo("#comment_likebuttonouter<%= @l %>") ;
+

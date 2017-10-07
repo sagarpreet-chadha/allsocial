@@ -1,0 +1,14 @@
+
+$('#comment_likecount<%= @l.likeable_id %>').html(function(i , text){
+	return parseInt(text)+1 ;
+}) ;
+
+
+ $('#comment_likebutton<%= @l.likeable_id %>').remove() ;
+
+ $("<a/>", { text: "Unlike" , id: "comment_unlikebutton<%= @l.likeable_id %>", method: "get" ,href: "/likes/post_unlikes/<%= @l.likeable_id %>" }).appendTo("#comment_likebuttonouter<%= @l.likeable_id %>") ;
+
+
+
+
+             

@@ -17,14 +17,27 @@
  body{
  	padding: 0;
  	margin: 0;
+ 	
  }
+
+ .fblike{
+			background-color: #4267b2 ;
+			color: white ;
+			width: 110px ;
+			height: 30px ;
+			padding-top: 20px ;
+			
+			a{
+				color: white ;
+			}
+		}
 
  #body-header{
  	padding: 0 15px;
  	display: flex;
  	flex-direction: row;
  	justify-content: space-between;
-
+ 	    background-color: orangered;
  	#page-logo{
  		width: 75px;
 

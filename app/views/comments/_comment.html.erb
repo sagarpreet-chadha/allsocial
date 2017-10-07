@@ -9,6 +9,30 @@
 				
 				<p class="comment-destroy-link">
 					<%= link_to "X", comment_path(c.id), remote: true ,  method: :delete %>
-				</p>						
+				</p>	
 
+
+	<!-- Like   -->
+	<div class="fblike">
+		<div> 
+		<span id="comment_likebuttonouter<%= c.id %>">
+			<% if user_signed_in?	%>
+				<% 	@commentl = Like.where(user_id: current_user.id , likeable_type: "comment" , likeable_id: c.id) ; %>
+				<% if @commentl.count == 0 %>
+				<%= link_to "Like" , comment_likes_path(c.id) , remote: true, method: :post  , id: "comment_likebutton#{c.id}" %>
+				<% else %>
+				<%= link_to "UnLike" , comment_unlikes_path(c.id) , remote: true , method: :get  , id: "comment_unlikebutton#{c.id}" %>
+				<% end %>
+			<% end %>
+		</span>
+		&nbsp; &nbsp; 
+		<span id="comment_likecount<%= c.id %>"> 
+		
+		0
+		
+		 </span>
+	    </div> 
+	</div>
+	
 </li>
+
